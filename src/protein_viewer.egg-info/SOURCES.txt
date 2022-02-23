@@ -1,0 +1,16 @@
+setup.py
+src/protein_viewer/__init__.py
+src/protein_viewer/app.py
+src/protein_viewer.egg-info/PKG-INFO
+src/protein_viewer.egg-info/SOURCES.txt
+src/protein_viewer.egg-info/dependency_links.txt
+src/protein_viewer.egg-info/requires.txt
+src/protein_viewer.egg-info/top_level.txt
+src/protein_viewer/ui/__init__.py
+src/protein_viewer/ui/actions.py
+src/protein_viewer/ui/icons/__init__.py
+src/protein_viewer/ui/icons/app_icon.py
+src/protein_viewer/ui/icons/utils.py
+src/protein_viewer/ui/widgets/__init__.py
+src/protein_viewer/ui/widgets/main_window.py
+src/protein_viewer/ui/widgets/menu_bar.py
