@@ -6,10 +6,10 @@ import numpy as np
 from mayavi import mlab
 from Bio.PDB import PDBParser, CaPPBuilder
 
-pdb_file = '1j1d_2.pdb'
+pdb_file = "1j1d_2.pdb"
 
 parser = PDBParser()
-structure = parser.get_structure('structure_name', pdb_file)
+structure = parser.get_structure("structure_name", pdb_file)
 
 # получаем все цепочки
 chains = dict()
@@ -40,7 +40,7 @@ colors = [
     (0.192, 0.964, 0.713),
     (0.964, 0.917, 0.192),
     (0.964, 0.592, 0.192),
-    (0.807, 0.274, 0.764)
+    (0.807, 0.274, 0.764),
 ]
 
 mlab.figure(1, bgcolor=(1, 1, 1))
@@ -63,6 +63,14 @@ for idx, chain_id in enumerate(chains):
     res.append(cur)
 
     for el in res:
-        mlab.points3d(el[:, 0], el[:, 1], el[:, 2], scale_factor=1, scale_mode='none', color=colors[idx], resolution=20)
+        mlab.points3d(
+            el[:, 0],
+            el[:, 1],
+            el[:, 2],
+            scale_factor=1,
+            scale_mode="none",
+            color=colors[idx],
+            resolution=20,
+        )
         mlab.plot3d(el[:, 0], el[:, 1], el[:, 2], color=colors[idx], line_width=10)
 mlab.show()

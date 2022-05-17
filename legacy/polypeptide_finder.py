@@ -1,14 +1,14 @@
 """
-Реализация алгоритмоа поиска полипептидной последовательности
+Реализация алгоритма поиска полипептидной последовательности
 """
 import numpy as np
 import matplotlib.pyplot as plt
 from Bio.PDB import PPBuilder, PDBParser
 
-pdb_file = '1j1d_2.pdb'
+pdb_file = "1j1d_2.pdb"
 
 parser = PDBParser()
-structure = parser.get_structure('structure_name', pdb_file)
+structure = parser.get_structure("structure_name", pdb_file)
 
 # получаем все цепочки
 chains = dict()
@@ -32,10 +32,10 @@ for chain_id in chains:
     vectors = np.array(vectors)
     v[chain_id] = vectors
 
-colors = ['m', 'g', 'b', 'r', 'c', 'k']
+colors = ["m", "g", "b", "r", "c", "k"]
 
 fig = plt.figure()
-ax = plt.axes(projection='3d')
+ax = plt.axes(projection="3d")
 
 for idx, chain_id in enumerate(chains):
     vect = v[chain_id]

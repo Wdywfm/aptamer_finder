@@ -1,6 +1,6 @@
 PySide6~=6.2.2.1
 biopython
-numpy~=1.22.1
+numpy~=1.21.1
 matplotlib~=3.5.1
 mayavi~=4.7.4
 setuptools~=60.5.0

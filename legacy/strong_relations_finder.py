@@ -30,6 +30,7 @@ class AlphaPoint(object):
 # ----------
 # Support Functions
 
+
 def show_points(alpha_Points):
     x = []
     y = []
@@ -48,24 +49,17 @@ def show_points(alpha_Points):
 # ----------
 
 # Preferences
-pdb_file = '1j1d_2.pdb'
+pdb_file = "1j1d_2.pdb"
 T = 7  # Range
 searching_keys = [
     # 'A',
     # 'B',
-    'C'
+    "C"
     # 'D',
     # 'E',
     # 'F'
 ]
-colors = {
-    'A': 'm',
-    'B': 'g',
-    'C': 'b',
-    'D': 'r',
-    'E': 'y',
-    'F': 'c'
-}
+colors = {"A": "m", "B": "g", "C": "b", "D": "r", "E": "y", "F": "c"}
 
 # Map of distances peptides in chains
 chaines_map_distances = dict()
@@ -73,7 +67,7 @@ chain_map = dict()
 
 # Initialisation
 parser = PDBParser()
-structure = parser.get_structure('structure_name', pdb_file)
+structure = parser.get_structure("structure_name", pdb_file)
 
 # получаем все цепочки
 chains = dict()
@@ -116,17 +110,21 @@ for chain_id_a in chains:
                         vector_b = atom_b.get_vector()
                         distance = np.linalg.norm(vector_a - vector_b)
 
-                        if not distance in chaines_map_distances[chain_id_a].keys():
+                        if distance not in chaines_map_distances[chain_id_a].keys():
                             chaines_map_distances[chain_id_a][distance] = []
 
                         chaines_map_distances[chain_id_a][distance].append(
-                            (AlphaPoint(vector_a, resseq_a, chain_id_a), AlphaPoint(vector_b, resseq_b, chain_id_b)))
+                            (
+                                AlphaPoint(vector_a, resseq_a, chain_id_a),
+                                AlphaPoint(vector_b, resseq_b, chain_id_b),
+                            )
+                        )
 
 # Search chins and printig
 alpha_Points = set()
 
 for key in searching_keys:
-    if not key in chaines_map_distances.keys():
+    if key not in chaines_map_distances.keys():
         continue
 
     range_chaines_map = chaines_map_distances[key]
@@ -142,11 +140,11 @@ for key in searching_keys:
             # alpha_Points.add(vector_a)
 
             # Show contact chains
-            if not vector_b.chainName in searching_keys:
+            if vector_b.chainName not in searching_keys:
                 alpha_Points.add(vector_b)
 
 fig = plt.figure()
-ax = plt.axes(projection='3d')
+ax = plt.axes(projection="3d")
 
 contactPoints = show_points(alpha_Points)
 ax.scatter3D(contactPoints[0], contactPoints[1], contactPoints[2], color=contactPoints[3], s=2)

@@ -8,8 +8,7 @@ if __name__ == "__main__":
     app = QApplication([])
 
     widget = MainWindow()
-    widget.resize(800, 600)
+    widget.resize(1366, 768)
     widget.show()
 
     sys.exit(app.exec())
-
